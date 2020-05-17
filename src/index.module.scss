@@ -1,0 +1,55 @@
+.questionsSection {
+    --questions-darkgreen: green;
+    --questions-faded-green: rgba(64, 230, 14, 0.432);
+    --questions-faded-red: rgba(230, 93, 14, 0.432);
+    --questions-red: rgb(185, 22, 10);
+    --questions-lightgreen: rgb(52, 207, 52);
+    --questions-lightorange: rgb(230, 138, 52);
+    --questions-orange: rgb(204, 102, 7);
+    padding: 20px;
+}
+
+.questionsContainer {
+    width: 500px;
+    margin: 20px auto;
+    padding: 10px 0 0;
+    border-radius: 5px;
+
+    & .submitBtn,
+    & .resetBtn {
+        padding: 10px 20px;
+        border-radius: 3px;
+        color: white;
+        cursor: pointer;
+        margin-right: 20px;
+    }
+
+    & .submitBtn {
+        background-color: var(--questions-lightgreen);
+        border: 1px solid var(--questions-darkgreen);
+
+        &:disabled {
+            cursor: not-allowed;
+        }
+    }
+    
+    & .resetBtn {
+        background-color: var(--questions-lightorange);
+        border: 1px solid var(--questions-orange);
+    }
+
+    & .scoreText {
+        display: inline-block;
+        margin: 0 0 0 20px;
+        font-weight: bold;
+
+        &.pass {
+            color: var(--questions-lightgreen);
+        }
+
+        &.fail {
+            color: var(--questions-red);
+        }
+    }
+}
+
