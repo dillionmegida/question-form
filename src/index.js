@@ -113,14 +113,15 @@ const Questionnaire = ({ questions = initialQs }) => {
         });
     };
 
-    const resetQuestions = () => {
-        return setState({
-            reset: true,
-            answers: [],
-            submitted: false,
-            errorMsg: false,
-        });
-    };
+    // TODO reset questions
+    // const resetQuestions = () => {
+    //     return setState({
+    //         reset: true,
+    //         answers: [],
+    //         submitted: false,
+    //         errorMsg: false,
+    //     });
+    // };
 
     return (
         <section className={styles.questionsSection}>
@@ -145,7 +146,7 @@ const Questionnaire = ({ questions = initialQs }) => {
                     </span>
                 )}
                 <button
-                    disabled={submitted ? true : false}
+                    disabled={submitted}
                     onClick={onSubmit}
                     className={styles.submitBtn}
                 >

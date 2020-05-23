@@ -19,19 +19,4 @@ Question.prototype.isCorrect = function (id) {
     return this.answerID === id;
 };
 
-Question.prototype.getOptionID = function (choice) {
-    const optionID = this.options.findIndex((option) => option === choice);
-    return optionID;
-};
-
-Question.prototype.getHTML = function (id) {
-    const result = html({
-        questionID: id,
-        question: this.question,
-        options: this.options,
-    });
-
-    return result;
-};
-
 export default Question;

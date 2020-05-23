@@ -1,4 +1,4 @@
-import React, { useState, createRef } from "react";
+import React, { useState } from "react";
 import styles from "./index.module.scss";
 
 import { optionIDFormat } from "../utils";
@@ -40,11 +40,6 @@ const QuestionBlock = ({
             correct: true,
         });
 
-    
-    if (resetWasClicked) {
-        // TODO uncheck all inputs
-    }
-
     return (
         <li className={styles.questionBlock}>
             <p className={styles.questionText}>{question}</p>
@@ -73,7 +68,7 @@ const QuestionBlock = ({
                                 type="radio"
                                 id={optionID}
                                 name={questionName}
-                                disabled={submitted ? true : false}
+                                disabled={submitted}
                                 onClick={() => {
                                     setState({ ...state, selectedID: id });
                                     onSelectOption(id);
