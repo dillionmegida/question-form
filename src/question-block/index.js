@@ -3,7 +3,7 @@ import styles from "./index.module.scss";
 
 import { optionIDFormat } from "../utils";
 import PropTypes from "prop-types";
-import Question from "../q-prototype";
+import Question from "../question-prototype";
 
 const QuestionBlock = ({
     questionID: i,

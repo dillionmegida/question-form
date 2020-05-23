@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styles from "./index.module.scss";
 
-import QuestionBlock from "./q-block";
-import QuestionPrototype from "./q-prototype";
+import QuestionBlock from "./question-block";
+import QuestionPrototype from "./question-prototype";
 
 const initialQs = [
     {
@@ -149,7 +149,7 @@ const Questionnaire = ({ questions = initialQs }) => {
                     onClick={onSubmit}
                     className={styles.submitBtn}
                 >
-                    Submit
+                    {submitted ? "Submitted!" : "Submit"}
                 </button>
                 {/* TODO reset questions
                 <button onClick={resetQuestions} className={styles.resetBtn}>
