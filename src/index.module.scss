@@ -8,9 +8,14 @@
     --questions-orange: rgb(204, 102, 7);
     padding: 20px;
     max-width: 500px;
+    width: 100%;
+    box-sizing: border-box;
+    & > * {
+        box-sizing: border-box;
+    }
 
     & .options {
-        margin-left: 40px;
+        margin-left: 20px;
         & .message {
             display: block;
             color: var(--questions-red);
@@ -58,4 +63,5 @@
 .questionsList {
     width: 100%;
     margin: 20px auto;
+    padding-left: 10px;
 }
