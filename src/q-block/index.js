@@ -1,17 +1,18 @@
-import React, { useContext, useState } from "react";
+import React, { useState, createRef } from "react";
 import styles from "./index.module.scss";
 
 import { optionIDFormat } from "../utils";
 import PropTypes from "prop-types";
 import Question from "../q-prototype";
-// import { useGlobalState } from "../store";
 
 const QuestionBlock = ({
     questionID: i,
     question,
     options,
     answerID,
-    selectedVal = null,
+    onSelectOption,
+    submitted,
+    resetWasClicked,
 }) => {
     const questionName = `question${i}`;
 
@@ -23,31 +24,25 @@ const QuestionBlock = ({
     });
 
     const [state, setState] = useState({
-        selected: false,
-        wrong: false,
-        correct: false,
+        selectedID: null,
+        correct: null,
+        specifiedCorrectAnswer: questionClass.answerID,
     });
 
-    // const [globalState, dispatch] = useGlobalState();
+    const { selectedID, correct, specifiedCorrectAnswer } = state;
 
-    if (state.selected)
-        dispatch({
-            type: "INCREASE_SCORE",
-            payload: state.correct && 1,
+    const isCorrect =
+        selectedID === null ? null : questionClass.isCorrect(selectedID);
+
+    if (correct !== isCorrect && isCorrect)
+        setState({
+            ...state,
+            correct: true,
         });
 
-    if (selectedVal !== null) {
-        const isCorrect = questionClass.isCorrect(selectedVal);
-        if (isCorrect)
-            setState({
-                ...state,
-                correct: true,
-            });
-        else
-            setState({
-                ...state,
-                wrong: true,
-            });
+    
+    if (resetWasClicked) {
+        // TODO uncheck all inputs
     }
 
     return (
@@ -60,19 +55,29 @@ const QuestionBlock = ({
                         <div
                             key={`question${i}options${id}`}
                             className={`${styles.option} ${
-                                selectedVal === null
-                                    ? null
-                                    : state.correct
-                                    ? styles.correctAnswer
-                                    : styles.wrongAnswer
+                                // must be submitted before any of these applies
+                                // wrong class block
+                                submitted &&
+                                !state.correct &&
+                                state.selectedID === id &&
+                                styles.wrongAnswer
+                            } ${
+                                // must be submitted before any of these applies
+                                // correct class block
+                                submitted &&
+                                specifiedCorrectAnswer === id &&
+                                styles.correctAnswer
                             }`}
-                            id={`divFor-${optionID}`}
                         >
                             <input
                                 type="radio"
                                 id={optionID}
                                 name={questionName}
-                                disabled={globalState.submitted ? true : false}
+                                disabled={submitted ? true : false}
+                                onClick={() => {
+                                    setState({ ...state, selectedID: id });
+                                    onSelectOption(id);
+                                }}
                             />
                             <label htmlFor={optionID}>{option}</label>
                         </div>

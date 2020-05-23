@@ -15,10 +15,8 @@ function Question({ questionID, question, options, answerID }) {
     this.answerID = answerID;
 }
 
-Question.prototype.isCorrect = function (choice) {
-    const correct = this.options[this.answerID];
-    if (correct === choice) return true;
-    return false;
+Question.prototype.isCorrect = function (id) {
+    return this.answerID === id;
 };
 
 Question.prototype.getOptionID = function (choice) {

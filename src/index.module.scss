@@ -7,32 +7,34 @@
     --questions-lightorange: rgb(230, 138, 52);
     --questions-orange: rgb(204, 102, 7);
     padding: 20px;
-}
+    max-width: 500px;
 
-.questionsContainer {
-    width: 500px;
-    margin: 20px auto;
-    padding: 10px 0 0;
-    border-radius: 5px;
+    & .options {
+        margin-left: 40px;
+        & .message {
+            display: block;
+            color: var(--questions-red);
+            margin: 20px 0;
+        }
+        & .submitBtn,
+        & .resetBtn {
+            padding: 10px 20px;
+            border-radius: 3px;
+            color: white;
+            cursor: pointer;
+            margin-right: 20px;
+        }
 
-    & .submitBtn,
-    & .resetBtn {
-        padding: 10px 20px;
-        border-radius: 3px;
-        color: white;
-        cursor: pointer;
-        margin-right: 20px;
-    }
+        & .submitBtn {
+            background-color: var(--questions-lightgreen);
+            border: 1px solid var(--questions-darkgreen);
 
-    & .submitBtn {
-        background-color: var(--questions-lightgreen);
-        border: 1px solid var(--questions-darkgreen);
-
-        &:disabled {
-            cursor: not-allowed;
+            &:disabled {
+                cursor: not-allowed;
+            }
         }
     }
-    
+
     & .resetBtn {
         background-color: var(--questions-lightorange);
         border: 1px solid var(--questions-orange);
@@ -53,3 +55,7 @@
     }
 }
 
+.questionsList {
+    width: 100%;
+    margin: 20px auto;
+}
