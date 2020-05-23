@@ -1,7 +1,7 @@
-import Questionnaire from ".";
+import QuestionForm from ".";
 
-describe("Questionnaire", () => {
+describe("QuestionForm", () => {
     it("is truthy", () => {
-        expect(Questionnaire).toBeTruthy();
+        expect(QuestionForm).toBeTruthy();
     });
 });

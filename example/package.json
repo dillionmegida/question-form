@@ -1,13 +1,13 @@
 {
-  "name": "questionnaire-example",
-  "homepage": "https://dillionmegida.github.io/questionnaire",
+  "name": "question-form-example",
+  "homepage": "https://dillionmegida.github.io/question-form",
   "version": "0.0.0",
   "private": true,
   "dependencies": {
     "react": "file:../node_modules/react",
     "react-dom": "file:../node_modules/react-dom",
     "react-scripts": "file:../node_modules/react-scripts",
-    "questionnaire": "file:.."
+    "question-form": "file:.."
   },
   "scripts": {
     "start": "node ../node_modules/react-scripts/bin/react-scripts.js start",

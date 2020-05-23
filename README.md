@@ -1,13 +1,13 @@
-# questionnaire
+# question-form
 
 React component for adding exercise questions to webpages or blogs.
 
-[![NPM](https://img.shields.io/npm/v/questionnaire.svg)](https://www.npmjs.com/package/questionnaire) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/question-form.svg)](https://www.npmjs.com/package/question-form) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
 ```bash
-npm install --save questionnaire
+npm install --save question-form
 ```
 
 ## Usage
@@ -44,8 +44,8 @@ Every question should be in form of objects with three keys: question (`string`)
 ```jsx
 import React, { Component } from 'react'
 
-import Questionnaire from 'questionnaire'
-import 'questionnaire/dist/index.css'
+import QuestionForm from 'question-form'
+import 'question-form/dist/index.css'
 
 const Page = () => {
     const questions = [{
@@ -59,7 +59,7 @@ const Page = () => {
     },...]
 
     return (
-        <Questionnaire questions={questions}>
+        <QuestionForm questions={questions}>
     )
 }
 ```
@@ -93,14 +93,14 @@ Wherever you query your post, you could add the following: (using the gatsby-sta
 
 ```jsx
 import React from 'react'
-import Questionnaire from 'questionnaire'
+import QuestionForm from 'question-form'
 ---
 export default ({data}) => {
     const {frontmatter: {title, questions}} = data.markdownRemark;
     return (
         <div>
             <h1>Title</h1>
-            <Questionnaire questions={questions}>
+            <QuestionForm questions={questions}>
         </div>
     )
 }
@@ -125,8 +125,8 @@ export const query = graphql`
 
 Your contribution to this project would be highly appreciated. Could be a documentation issue, pull request, feature request, they are all welcome.
 
--   [Create a pull request](https://github.com/dillionmegida/questionnaire/pulls)
--   [Open an issue](https://github.com/dillionmegida/questionnaire/issues)
+-   [Create a pull request](https://github.com/dillionmegida/question-form/pulls)
+-   [Open an issue](https://github.com/dillionmegida/question-form/issues)
 
 ## Users
 

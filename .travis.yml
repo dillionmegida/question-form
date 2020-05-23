@@ -9,7 +9,7 @@ branches:
         - master
 notifications:
     email: false
-script:
-    - npm run validate
-after_success:
-    - npm run release
+# script:
+#     - npm run validate
+# after_success:
+#     - npm run release

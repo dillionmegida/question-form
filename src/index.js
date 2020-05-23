@@ -6,23 +6,18 @@ import QuestionPrototype from "./question-prototype";
 
 const initialQs = [
     {
-        name:
-            "What element is responsible for growth in the body, What element is responsible for growth in the bodyWhat element is responsible for growth in the body",
-        options: [
-            "What element is responsible for growth in the body, What element is responsible for growth in the body",
-            "bla",
-            "yos",
-        ],
-        answer: 2,
+        name: "Question 1",
+        options: ["Option 1", "Option 2"],
+        answer: 1,
     },
     {
-        name: "question 2",
-        options: ["yo", "bla", "yos"],
+        name: "Question 2",
+        options: ["Option 1", "Option 2", "Option 3"],
         answer: 1,
     },
 ];
 
-const Questionnaire = ({ questions = initialQs }) => {
+const QuestionForm = ({ questions = initialQs }) => {
     const [state, setState] = useState({
         answers: [],
         submitted: false,
@@ -172,4 +167,4 @@ const Questionnaire = ({ questions = initialQs }) => {
     );
 };
 
-export default Questionnaire;
+export default QuestionForm;

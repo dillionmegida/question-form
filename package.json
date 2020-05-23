@@ -1,10 +1,10 @@
 {
-  "name": "questionnaire",
+  "name": "question-form",
   "version": "1.0.0",
   "description": "Add questions to your projects or blogs",
   "author": "dillionmegida",
   "license": "MIT",
-  "repository": "dillionmegida/questionnaire",
+  "repository": "dillionmegida/question-form",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.js",

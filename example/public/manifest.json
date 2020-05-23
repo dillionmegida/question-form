@@ -1,6 +1,6 @@
 {
-  "short_name": "questionnaire",
-  "name": "questionnaire",
+  "short_name": "question-form",
+  "name": "question-form",
   "icons": [
     {
       "src": "favicon.ico",

@@ -1,10 +1,10 @@
 import React from 'react'
 
-import Questionnaire from 'questionnaire'
-import 'questionnaire/dist/index.css'
+import QuestionForm from 'question-form'
+import 'question-form/dist/index.css'
 
 const App = () => {
-  return <Questionnaire text="Create React Library Example 😄" />
+  return <QuestionForm />
 }
 
 export default App
