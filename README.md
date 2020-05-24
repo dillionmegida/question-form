@@ -17,7 +17,7 @@ This component requires a `questions` prop of type array. The required format of
 ```js
 [
     {
-        question: 'What is React?',
+        name: 'What is React?',
         options: [
             "React is this",
             "React is that",
@@ -26,7 +26,7 @@ This component requires a `questions` prop of type array. The required format of
         answer: 0
     },
     {
-        question: 'What is science?',
+        name: 'What is science?',
         ...
     },
     ...
@@ -49,7 +49,7 @@ import 'question-form/dist/index.css'
 
 const Page = () => {
     const questions = [{
-        question: 'What is React?',
+        name: 'What is React?',
         options: [
             "React is this",
             "React is that",
@@ -78,7 +78,7 @@ title: "Post title"
 questions:
     [
         {
-            question: "What is React?",
+            name: "What is React?",
             options: ["React is this", "React is that", "React is cool"],
             answer: 0,
         },
@@ -113,7 +113,11 @@ export const query = graphql`
       }
       frontmatter {
         title
-        questions
+        questions {
+            name
+            options
+            answer
+        }
       }
     }
   }

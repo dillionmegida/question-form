@@ -26,6 +26,7 @@
   "peerDependencies": {
     "react": "^16.0.0"
   },
+  "keywords": ["questions", "question-form", "gatsby", "blog-exercise"],
   "devDependencies": {
     "microbundle-crl": "^0.13.10",
     "babel-eslint": "^10.0.3",
