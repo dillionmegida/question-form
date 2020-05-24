@@ -3,6 +3,9 @@ import styles from "./index.module.scss";
 
 import QuestionBlock from "./question-block";
 import QuestionPrototype from "./question-prototype";
+import { confirmQuestionFormat } from "./utils";
+
+export const pkgName = "question-form";
 
 const initialQs = [
     {
@@ -28,15 +31,16 @@ const QuestionForm = ({ questions = initialQs }) => {
 
     const { submitted, answers, errorMsg, reset, score } = state;
 
-    const questionClasses = questions.map(
-        ({ name, options, answer }, id) =>
-            new QuestionPrototype({
-                questionID: id,
-                question: name,
-                options: options,
-                answerID: answer,
-            })
-    );
+    const questionClasses = questions.map(({ name, options, answer }, id) => {
+        confirmQuestionFormat({ name, options, answer });
+
+        return new QuestionPrototype({
+            questionID: id,
+            question: name,
+            options: options,
+            answerID: answer,
+        });
+    });
 
     const selectOption = (questionID, optionID) => {
         const prevChosenID = answers.findIndex(
