@@ -19,7 +19,7 @@ npm install --save question-form
 
 ### Required format of questions
 
-Every question should be in form of objects with three keys: question (`string`), options (`array`) and answer (`number`) which is the index of the answer in the options array.
+Every question should be in form of objects with three keys: name (`string`), options (`array`) and answer (`number`) which is the index of the answer in the options array.
 
 ### Example
 
@@ -56,6 +56,12 @@ const Page = () => {
     )
 }
 ```
+        <QuestionForm questions={questions} color='rgb(0, 140, 255)'>
+    )
+}
+Result:
+
+￼
 
 Result:
 
