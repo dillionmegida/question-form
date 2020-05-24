@@ -12,30 +12,12 @@ npm install --save question-form
 
 ## Usage
 
-This component requires a `questions` prop of type array. The required format of the questions array is:
+### Props
 
-```js
-[
-    {
-        name: 'What is React?',
-        options: [
-            "React is this",
-            "React is that",
-            "React is cool"
-        ],
-        answer: 0
-    },
-    {
-        name: 'What is science?',
-        ...
-    },
-    ...
-]
-```
+- `questions` (**required**): of type Array. The required format of the questions array is shown below.
+- `color` (*optional -> default - '`#ddd`'*): of type String used on for the borders of the question container.
 
-Result:
-
-![](image)
+### Required format of questions
 
 Every question should be in form of objects with three keys: question (`string`), options (`array`) and answer (`number`) which is the index of the answer in the options array.
 
@@ -48,7 +30,8 @@ import QuestionForm from 'question-form'
 import 'question-form/dist/index.css'
 
 const Page = () => {
-    const questions = [{
+    const questions = [
+    {
         name: 'What is React?',
         options: [
             "React is this",
@@ -56,19 +39,39 @@ const Page = () => {
             "React is cool"
         ],
         answer: 0
-    },...]
+    },
+    {
+        name: 'What is science?',
+        options: [
+            "Science is bad",
+            "Science is good",
+            "Science is wow"
+        ],
+        answer: 2
+    },
+]
 
     return (
-        <QuestionForm questions={questions}>
+        <QuestionForm questions={questions} color='rgb(0, 140, 255)'>
     )
 }
 ```
 
+Result:
+
+![Preview of the question form filled with questions](./images/example1.png)
+
+And on selection:
+
+![Preview of the question form when choices are selected](./images/example2.png)
+
+`answer: 0` signifies the first option in the first question is correct and `answer: 2` signifies the last option in the second question is correct.
+
 ### Use case - markdown blog posts
 
-This component can be used in any framework that allows querying of markdown posts. Basically, the questions array would be added to the frontmatter of the markdown, and on querying, this component can be used with the questions property of the frontmatter assigned to the `questions` prop.
+This component can be used in any framework that allows querying of markdown posts. The questions array would be added to the frontmatter of the markdown, and on querying, this component can be used with the questions property of the frontmatter assigned to the `questions` prop.
 
-This example uses a [Gatsby]() Blog.
+This example uses a [Gatsby](https://www.gatsbyjs.org/) Blog.
 
 In the post markdown file:
 
@@ -89,7 +92,7 @@ questions:
 ...
 ```
 
-Wherever you query your post, you could add the following: (using the gatsby-starter post query format)
+Wherever you query your post, you could add the following: (the query used here is as shown in [gatsby-starter-blog](https://www.gatsbyjs.org/starters/gatsbyjs/gatsby-starter-blog/))
 
 ```jsx
 import React from 'react'
@@ -99,7 +102,9 @@ export default ({data}) => {
     const {frontmatter: {title, questions}} = data.markdownRemark;
     return (
         <div>
-            <h1>Title</h1>
+            <h1>{title}</h1>
+            // some stuffs here
+            <h2>Exercise questions</h2>
             <QuestionForm questions={questions}>
         </div>
     )
@@ -125,17 +130,19 @@ export const query = graphql`
 
 ```
 
+*You can check a practical example on my blog [in this post](https://dillionmegida.com/p/understanding-the-prototype-chain-in-javascript/). You'll find it at the bottom of the post*
+
 ## Issues and Contributions
 
-Your contribution to this project would be highly appreciated. Could be a documentation issue, pull request, feature request, they are all welcome.
+Your contribution to this project would be highly appreciated. It could be a documentation issue, pull request, feature request, they are all welcome.
 
 -   [Create a pull request](https://github.com/dillionmegida/question-form/pulls)
 -   [Open an issue](https://github.com/dillionmegida/question-form/issues)
 
-## Users
+<!-- ## Users
 
 - [My personal blog](https://dillionmegida.com)
-- [TheWebFor5](https://thewebfor5.com)
+- [TheWebFor5](https://thewebfor5.com) -->
 
 ## License
 
