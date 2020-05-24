@@ -7,8 +7,13 @@
     --questions-lightorange: rgb(230, 138, 52);
     --questions-orange: rgb(204, 102, 7);
     padding: 20px;
-    width: 100%;
     box-sizing: border-box;
+    width: 90%;
+    background-color: white;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px #eee;
+
     & > * {
         box-sizing: border-box;
     }

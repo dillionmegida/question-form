@@ -3,24 +3,19 @@ import styles from "./index.module.scss";
 
 import QuestionBlock from "./question-block";
 import QuestionPrototype from "./question-prototype";
-import { confirmQuestionFormat } from "./utils";
+import { confirmQuestionFormat, pkgName } from "./utils";
 
-export const pkgName = "question-form";
+const initialQs = [{ name: "Question 1", options: ["option 1"], answer: 0 }];
 
-const initialQs = [
-    {
-        name: "Question 1",
-        options: ["Option 1", "Option 2"],
-        answer: 1,
-    },
-    {
-        name: "Question 2",
-        options: ["Option 1", "Option 2", "Option 3"],
-        answer: 1,
-    },
-];
+const QuestionForm = ({ questions = initialQs, color = "#ddd" }) => {
+    if (!Array.isArray(questions)) {
+        throw new Error(
+            `${pkgName}: 'questions' prop must be of type array, with each question as an object with property name, options and answer`
+        );
+    }
 
-const QuestionForm = ({ questions = initialQs }) => {
+    if (questions.length < 1) return <></>;
+
     const [state, setState] = useState({
         answers: [],
         submitted: false,
@@ -123,7 +118,10 @@ const QuestionForm = ({ questions = initialQs }) => {
     // };
 
     return (
-        <section className={styles.questionsSection}>
+        <section
+            style={{ border: `1px solid ${color}` }}
+            className={styles.questionsSection}
+        >
             <ol className={styles.questionsList}>
                 {questions.map((question, i) => (
                     <QuestionBlock

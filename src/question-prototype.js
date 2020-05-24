@@ -1,4 +1,4 @@
-import { pkgName } from "./";
+import { pkgName } from "./utils";
 
 function Question({ questionID, question, options, answerID }) {
     if (typeof questionID !== "number")

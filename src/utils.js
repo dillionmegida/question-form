@@ -1,4 +1,4 @@
-import { pkgName } from "./";
+export const pkgName = "question-form";
 
 function optionIDFormat(optionID, questionID) {
     return `option${optionID + 1}ForQuestion${questionID + 1}`;

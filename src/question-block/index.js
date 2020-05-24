@@ -12,7 +12,7 @@ const QuestionBlock = ({
     answerID,
     onSelectOption,
     submitted,
-    resetWasClicked,
+    // resetWasClicked,
 }) => {
     const questionName = `question${i}`;
 
