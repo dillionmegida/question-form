@@ -31,14 +31,20 @@ const QuestionBlock = ({
 
     const { selectedID, correct, specifiedCorrectAnswer } = state;
 
-    const isCorrect =
-        selectedID === null ? null : questionClass.isCorrect(selectedID);
+    const isCorrect = selectedID === questionClass.isCorrect(selectedID);
 
-    if (correct !== isCorrect && isCorrect)
-        setState({
-            ...state,
-            correct: true,
-        });
+    if (correct !== isCorrect) {
+        if (isCorrect)
+            setState({
+                ...state,
+                correct: true,
+            });
+        else
+            setState({
+                ...state,
+                correct: false,
+            });
+    }
 
     return (
         <li className={styles.questionBlock}>

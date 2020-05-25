@@ -6,28 +6,14 @@ import QuestionPrototype from "./question-prototype";
 import { confirmQuestionFormat, pkgName } from "./utils";
 import PropTypes from "prop-types";
 
-const QuestionForm = ({
-    questions = [
-        {
-            name: "What is React?",
-            options: ["React is this", "React is that", "React is cool"],
-            answer: 0,
-        },
-        {
-            name: "What is science?",
-            options: ["Science is bad", "Science is good", "Science is wow"],
-            answer: 2,
-        },
-    ],
-    color = "#ddd",
-}) => {
+const QuestionForm = ({ questions = [], color = "#ddd" }) => {
     if (!Array.isArray(questions)) {
         throw new Error(
             `${pkgName}: 'questions' prop must be of type array, with each question as an object with property name, options and answer`
         );
     }
 
-    if (questions.length < 1) return <></>;
+    if (questions.length < 1) return null;
 
     const [state, setState] = useState({
         answers: [],
