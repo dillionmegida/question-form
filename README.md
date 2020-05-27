@@ -14,8 +14,8 @@ npm install --save question-form
 
 ### Props
 
-- `questions` (**required**): of type Array. The required format of the questions array is shown below.
-- `color` (*optional -> default - '`#ddd`'*): of type String used on for the borders of the question container.
+-   `questions` (**required**): of type Array. The required format of the questions array is shown below.
+-   `color` (_optional -> default - '`#ddd`'_): of type String used on for the borders of the question container.
 
 ### Required format of questions
 
@@ -56,8 +56,10 @@ const Page = () => {
     )
 }
 ```
+
         <QuestionForm questions={questions} color='rgb(0, 140, 255)'>
     )
+
 }
 Result:
 
@@ -111,7 +113,11 @@ export default ({data}) => {
             <h1>{title}</h1>
             // some stuffs here
             <h2>Exercise questions</h2>
-            <QuestionForm questions={questions}>
+            // ensure the questions property is not null
+            {questions && (
+                <QuestionForm questions={questions}>
+
+            )}
         </div>
     )
 }
@@ -136,7 +142,7 @@ export const query = graphql`
 
 ```
 
-*You can check a practical example on my blog [in this post](https://dillionmegida.com/p/understanding-the-prototype-chain-in-javascript/). You'll find it at the bottom of the post*
+_You can check a practical example on my blog [in this post](https://dillionmegida.com/p/understanding-the-prototype-chain-in-javascript/). You'll find it at the bottom of the post_
 
 ## Issues and Contributions
 
