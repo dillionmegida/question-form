@@ -31,7 +31,7 @@ const QuestionBlock = ({
 
     const { selectedID, correct, specifiedCorrectAnswer } = state;
 
-    const isCorrect = selectedID === questionClass.isCorrect(selectedID);
+    const isCorrect = questionClass.isCorrect(selectedID);
 
     if (correct !== isCorrect) {
         if (isCorrect)
